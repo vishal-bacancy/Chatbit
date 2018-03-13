@@ -1,0 +1,16 @@
+<h1>Home</h1>
+
+<% if current_user%>
+	<div>
+		<p>Hey, <%= current_user.name%> <%=image_tag(current_user.image) if current_user.image%></p>
+	</div>
+<% end%>
+
+
+<% unless current_user%>
+	<p><%= link_to "sign in with facebook", user_facebook_omniauth_authorize_path %></p>
+	<p><%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %></p>
+
+<% else%>
+	<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<% end %>

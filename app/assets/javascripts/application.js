@@ -13,3 +13,10 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+});
