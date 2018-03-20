@@ -21,6 +21,11 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'pry-rails'
+gem 'bootstrap', '~> 4.0.0' 
+gem 'jquery-rails'
+gem 'administrate'
+gem 'cancancan'
+gem 'rolify'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

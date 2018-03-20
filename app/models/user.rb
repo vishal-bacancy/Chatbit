@@ -1,11 +1,13 @@
 class User < ApplicationRecord
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
   		 :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
-
-
+       
+  belongs_to :role     
+  after_initialize :set_default_role
   def self.new_with_session(params, session)
   super.tap do |user|
     if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
@@ -41,4 +43,10 @@ def self.from_omniauth(auth)
     user.image = auth.info.image # assuming the user model has an image
   end
 end
+
+  private
+  def set_default_role
+    self.role ||= Role.find_by_name('user') 
+  end
+
 end

@@ -1,0 +1,27 @@
+@import "bootstrap";
+@import "navbar";
+
+.notice{
+	
+	background-color: #F7D350;
+	color: #163CF7;
+	border-left: blue;
+
+
+
+}
+
+.error{
+	
+
+}
+
+.login-panel
+{
+		margin: 0 auto;
+		box-shadow: 0px 1px 20px 3px grey;
+		align-self: center;
+		border-radius: 5px;
+		padding: 20px 30px;
+		box-sizing: inherit;
+}
